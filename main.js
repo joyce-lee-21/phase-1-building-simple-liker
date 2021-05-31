@@ -4,8 +4,23 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+const divModal = document.querySelector("div#modal")
 
+document.addEventListener("DOMContentLoaded", () => {
+  emptyHeart()
+})
 
+const emptyHeart = () => {
+  //target DOM elements
+  const likeGlyph = document.querySelector(".like-glyph")
+
+  //event listeners
+  likeGlyph.addEventListener('click', (e) => {
+    mimicServerCall()
+    .then(response => {console.log(response)})
+    .catch(() => {divModal.className = ""})
+  })
+}
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
